@@ -37,3 +37,8 @@ kbd{
     border-color: tomato;
     box-shadow: 0 0 2rem tomato;
 }
+
+.sound{
+    font-size: 1.2rem;
+    letter-spacing: .1rem;
+}
