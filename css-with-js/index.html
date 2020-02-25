@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play CSS</title>
+</head>
+
+<body>
+    <h2>Update CSS variable with <span class="h2">JS</span></h2>
+    <div class="controls">
+        <label for="spacing">Spacing: </label>
+        <input type="range" id='spacing' name='spacing' min="10" max="200" value="10" data-sizing="px">
+        <label for="blur">Blur: </label>
+        <input type="range" id="blur" name="blur" min="0" max="25" data-sizing="px">
+        <label for="color">Color: </label>
+        <input type="color" id="color" name="color" min="0" max="25" data-sizing="px">
+    </div>
+    <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+    <style>
+        :root {
+            --spacing: 10px;
+            --blur: 10px;
+            --color: #ffc600
+        }
+
+        img {
+            padding: var(--spacing);
+            background: var(--color);
+
+        }
+
+        .h2 {
+            color: var(--base);
+        }
+
+        body {
+            text-align: center;
+            background: #193549;
+            color: white;
+            font-family: 'helvetica neue', sans-serif;
+            font-weight: 100;
+            font-size: 50px;
+        }
+
+        .controls {
+            margin-bottom: 50px;
+        }
+
+        input {
+            width: 100px;
+        }
+    </style>
+</body>
+
+</html>

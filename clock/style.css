@@ -33,13 +33,29 @@ body {
 }
 
 .hand{
-    width: 50%;
     height: 6px;
-    background: white;
     position: absolute;
     top: 50%;
     transform-origin: 100%;
     transform: rotate(90deg);
     transition: all 0.05s;
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.second{
+    width: 50%;
+    background: white;
+}
+.minute{
+    width: 40%;
+    background: darkgoldenrod;
+    margin-left: 10%;
+}
+.hour{
+    width: 30%;
+    background: darkseagreen;
+    margin-left: 20%;
+}
+.fast{
+    transition: all 0s;
 }

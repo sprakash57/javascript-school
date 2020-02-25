@@ -23,14 +23,16 @@
         function setDate() {
             const now = new Date()
             const second = now.getSeconds();
-            const minute = now.getMinutes();
-            const hour = now.getHours();
-            const secDegree = (second / 60) * 360 + 90
-            const minDegree = ((minute / 60) * 360) + (second / 60) * 6 + 90
-            const hrDegree = (hour / 12) * 360 + (minute / 60) * 30 + 90
+            if (second === 0) secondHand.classList.add('fast');
+            if (second === 1) secondHand.classList.remove('fast');
+            const secDegree = ((second / 60) * 360) + 90;
             secondHand.style.transform = `rotate(${secDegree}deg)`;
-            minHand.style.transform = `rotate(${minHand}deg)`;
-            hrHand.style.transform = `rotate(${hrHand}deg)`;
+            const minute = now.getMinutes();
+            const minDegree = ((minute / 60) * 360) + ((second / 60) * 6) + 90;
+            minHand.style.transform = `rotate(${minDegree}deg)`;
+            const hour = now.getHours();
+            const hrDegree = ((hour / 12) * 360) + ((minute / 60) * 30) + 90;
+            hrHand.style.transform = `rotate(${hrDegree}deg)`;
         }
         setInterval(setDate, 1000);
         setDate();
