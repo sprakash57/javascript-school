@@ -34,8 +34,50 @@
         .panel {
             flex: 1;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition:
+                font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+                flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+                background 0.2s;
+        }
+
+        .panel>*:first-child {
+            transform: translateY(-100%);
+        }
+
+        .panel.active>*:first-child {
+            transform: translateY(0);
+        }
+
+        .panel>*:last-child {
+            transform: translateY(100%);
+        }
+
+        .panel.active>*:last-child {
+            transform: translateY(0);
+        }
+
+        .panel>* {
+            display: flex;
+            flex: 1 0 auto;
             justify-content: center;
             align-items: center;
+            margin: 0;
+            width: 100%;
+            transition: transform 0.5s;
+            text-transform: uppercase;
+            font-size: 2rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+        }
+
+        .panel p:nth-child(2) {
+            font-size: 3rem;
+        }
+
+        .panel.open {
+            flex: 5;
+            font-size: 35px;
         }
 
         .panel1 {
@@ -43,7 +85,7 @@
         }
 
         .panel2 {
-            background-color: blue;
+            background-color: goldenrod;
         }
 
         .panel3 {
@@ -85,6 +127,19 @@
             <p>Motion</p>
         </div>
     </div>
+    <script>
+        const panles = document.querySelectorAll('.panel');
+        panles.forEach(panel => panel.addEventListener('click', function () {
+            this.classList.toggle('open');
+        }))
+        panles.forEach(panel => panel.addEventListener('transitionend', function (e) {
+            console.log(e);
+            console.log(this);
+            if (e.propertyName.includes('flex')) {
+                this.classList.toggle('active');
+            }
+        }))
+    </script>
 </body>
 
 </html>
