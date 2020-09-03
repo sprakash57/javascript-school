@@ -12,7 +12,7 @@ const reset = document.querySelector("#reset");
 const pastRecords = document.querySelector("#pastRecords");
 const timer = document.querySelector("#timer");
 
-startStop.onclick = function () {
+function handleStartStop() {
     if (hasStarted) {
         interval = setInterval(() => {
             time++;
@@ -38,14 +38,33 @@ startStop.onclick = function () {
     }
 }
 
-record.onclick = function () {
+function renderPastRecords() {
     let li = document.createElement('li');
     li.innerHTML = recordedTime;
     pastRecords.append(li);
 }
 
-reset.onclick = function () {
+function resetPage() {
+    time = 0;
+    hour = 0;
+    minute = 0;
+    second = 0;
+    hasStarted = true;
+    recordedTime = '';
     pastRecords.innerHTML = "";
     timer.innerHTML = "0";
     clearInterval(interval);
+}
+
+startStop.addEventListener('click', handleStartStop);
+
+record.addEventListener('click', renderPastRecords);
+
+reset.addEventListener('click', resetPage);
+
+document.onkeypress = function (e) {
+    const key = e.key.toLowerCase();
+    if (key === 's') handleStartStop();
+    else if (key === 'r') resetPage();
+    else if (key === 'p') renderPastRecords();
 }
