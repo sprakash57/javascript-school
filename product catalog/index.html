@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Product Catalog</title>
+    <script src="api.js"></script>
+</head>
+
+<body>
+    <main>
+        <section>
+            <h2>Search Product by
+                <span>
+                    <select id="filter">
+                        <option value="id">Id</option>
+                        <option value="price">Price</option>
+                        <option value="type">Type</option>
+                    </select>
+                </span>
+            </h2>
+            <form id='appForm'>
+                <input name="searchedItem" type="search">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        <section>
+            <h2>Examined Products</h2>
+            <p>Product ID: <span id='productId'></span></p>
+            <p>Price: <span id='price'></span></p>
+            <p>Type: <span id='type'></span></p>
+        </section>
+        <section>
+            <h2>List of Similar Products</h2>
+            <table id="similarProds">
+                <tbody>
+                    <tr id='similarHeader'>
+                        <th>ProductId</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                        <th>Details</th>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>List of All Products</h2>
+            <table id="allProds">
+                <tbody>
+                    <tr>
+                        <th>ProductId</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                        <th>Details</th>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
